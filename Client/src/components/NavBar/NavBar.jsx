@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from '../../assets/icon.jpg';
+import axios from '../../axios';
 
-function NavBar() {
+function NavBar({
+  title,
+  setTitle,
+  searchRes,
+  setSearchRes
+}) {
+
+  const searchHandle = (e) => {
+    e.preventDefault()
+    setTitle(e.target.value);
+    axios.get(`/search?title=${title}`).then(res=>{
+      setSearchRes(res.data)
+    })
+  }
+
   return (  
     <div className="pl-10 h-20 flex justify-between">  
       <div className="flex items-center">
@@ -15,7 +30,7 @@ function NavBar() {
                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
               </svg>
             </div>
-            <input type="search" id="default-search" className="block h-10 w-96 p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Search movies and series" required />
+            <input onChange={searchHandle} type="search" id="default-search" className="block h-10 w-96 p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Search movies and series" required />
           </div>
         </form>
       </div>
