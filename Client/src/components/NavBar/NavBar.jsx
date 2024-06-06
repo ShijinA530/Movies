@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import logo from '../../assets/icon.jpg';
 import axios from '../../axios';
+import { useNavigate } from 'react-router-dom';
 
 function NavBar({
   title,
@@ -17,11 +18,16 @@ function NavBar({
     })
   }
 
+  const navigate = useNavigate()
+
   return (  
-    <div className="pl-10 h-20 flex justify-between">  
+    <div className="pl-10 h-20 flex justify-between">
       <div className="flex items-center">
+        <div onClick={()=>navigate("/")} className='flex items-center hover:cursor-pointer'>
         <img className="h-8 m-1" src={logo} alt="logo" />
         <h5 className="font-medium ml-1">GET MOVIES</h5>
+        </div>
+        
         <form className="max-w-md flex ml-5">
           <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
           <div className="relative w-full">
@@ -30,11 +36,11 @@ function NavBar({
                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
               </svg>
             </div>
-            <input onChange={searchHandle} type="search" id="default-search" className="block h-10 w-96 p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Search movies and series" required />
+            <input onChange={searchHandle} type="search" id="default-search" className="block h-10 w-96 p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50" placeholder="Search movies and series" required />
           </div>
         </form>
       </div>
-      <button type="button" className="mt-5 mr-10 h-10 text-white  hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">My favourites</button>
+      <button onClick={()=>navigate("/favourites")} type="button" className="mt-5 mr-10 h-10 text-white font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-500 dark:hover:bg-red-600 focus:outline-none dark:focus:ring-blue-800">My favourites</button>
     </div>
   );
 }

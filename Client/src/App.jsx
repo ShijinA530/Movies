@@ -1,27 +1,53 @@
 import { useState } from 'react';
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
-import Banner from './components/Banner/Banner';
-import RowPost from './components/RowPost/RowPost';
-
+import { Routes, Route } from 'react-router-dom';
+import HomePage from './Pages/HomePage';
+import FavouritePage from './Pages/FavouritePage';
 
 function App() {
-  const [searchRes,setSearchRes] = useState([])
-  const [title,setTitle] = useState("")
+  const [searchRes, setSearchRes] = useState([]);
+  const [title, setTitle] = useState("");
+  const [favoriteMovies, setFavoriteMovies] = useState([]);
+
+  const handleFavoriteClick = (movie) => {
+    setFavoriteMovies((prevFavorites) => {
+      if (prevFavorites.includes(movie.id)) {
+        return prevFavorites.filter((id) => id !== movie.id);
+      } else {
+        return [...prevFavorites, movie.id];
+      }
+    });
+  };
+
   return (
     <div>
-      <NavBar title ={title} setTitle={setTitle}  searchRes={searchRes} setSearchRes={setSearchRes}/>
-      { title.length == 0 && <Banner/> }
-      
-      {title.length == 0 
-        ? 
-        <RowPost title='Movies' movies={searchRes} setMovies={setSearchRes}/>
-        :
-        <RowPost title='Search' movies={searchRes} setMovies={setSearchRes}/>
-      }
-      
+      <NavBar title={title} setTitle={setTitle} searchRes={searchRes} setSearchRes={setSearchRes} />
+      <Routes>
+        <Route
+          path='/'
+          element={
+            <HomePage
+              title={title}
+              movies={searchRes}
+              setMovies={setSearchRes}
+              favoriteMovies={favoriteMovies}
+              handleFavoriteClick={handleFavoriteClick}
+            />
+          }
+        />
+        <Route
+          path='/favourites'
+          element={
+            <FavouritePage
+              movies={searchRes}
+              favoriteMovies={favoriteMovies}
+              handleFavoriteClick={handleFavoriteClick}
+            />
+          }
+        />
+      </Routes>
     </div>
-      
   );
 }
 
