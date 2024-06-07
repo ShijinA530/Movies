@@ -19,10 +19,12 @@ Make sure you have the following installed:
    cd your-repo
 
 2. Run the server
+   
    cd .\Server\
    nodemon app
 
 4. Run the client
+   
    cd .\Client\
    npm run dev
    
