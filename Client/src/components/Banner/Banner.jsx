@@ -26,7 +26,7 @@ function Banner() {
       >
         <h1 className='font-extrabold text-5xl'>{movie ? movie.title : ''}</h1> {/* Handle missing title */}
         <h1 className='w-[700px] py-5 text-base max-w-[360px]'>
-          lkfjks;ljlcdbhvejhfvkejhflkbeflkefbwl,bjjjjk;l';,,.,///.kndcjbcjhdvjhksd //naxbcjyfdyuehv fcnbsmzvcdvhcgbkdbgsc,alklfdh
+          Description about the movie
         </h1>
         <div className="">
           <button type="button" className="h-11 pr-5 flex items-center text-black font-medium rounded-lg text-sm border dark:bg-white dark:focus:ring-blue-800 hover:text-red-500">
