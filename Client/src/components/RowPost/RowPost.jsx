@@ -4,7 +4,7 @@ import axios from '../../axios';
 function RowPost({ title, movies, setMovies, favoriteMovies, handleFavoriteClick }) {
   useEffect(() => {
     if (movies.length === 0) {
-      axios.get("")
+      axios.get(`${import.meta.env.VITE_SERVER_URI}`)
         .then((response) => {
           setMovies(response.data);
         })

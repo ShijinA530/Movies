@@ -5,7 +5,7 @@ function Banner() {
   const [movie, setMovie] = useState({}); // Set default value as an empty object
 
   useEffect(() => {
-    axios.get("").then((response) => {
+    axios.get(`${import.meta.env.VITE_SERVER_URI}`).then((response) => {
         setMovie(response.data[Math.floor(Math.random()*139)]);
       })
       .catch((error) => {
