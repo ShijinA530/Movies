@@ -2,7 +2,7 @@ import axios from 'axios'
 
 
 const instance = axios.create({
-    baseURL: 'http://localhost:3000/api/movies',
+    baseURL: 'https://movies-6.onrender.com//api/movies',
   });
 
 
