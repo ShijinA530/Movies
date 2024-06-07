@@ -16,7 +16,7 @@ function Banner() {
   return (
     <div className='flex justify-center bg-gray-100 pt-8'>
       <div 
-        className="bg-black pl-11 pt-64 h-[600px] w-[90%] rounded-lg text-white" 
+        className="bg-black pl-11 pt-64 h-[600px] w-[90%] rounded-xl text-white" 
         style={{ 
           backgroundImage: `url(${movie.banner_image})`, // Handle missing banner_image
           backgroundSize: 'auto 100%',
