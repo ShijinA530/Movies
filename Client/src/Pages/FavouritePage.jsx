@@ -1,16 +1,35 @@
 import React from 'react';
 
-function FavouritePage({ movies, favoriteMovies, handleFavoriteClick }) {
-  const favoriteMoviesList = movies.filter((movie) => favoriteMovies.includes(movie.id));
+function FavouritePage({ title, movies, favoriteMovies, handleFavoriteClick }) {
+  const favoriteMoviesList = [];
+  movies.forEach(movie => {
+    if (favoriteMovies.includes(movie.id)) {
+      favoriteMoviesList.push(movie);
+    }
+  });
+  
+
+  console.log(favoriteMovies);
+
+  let filteredMovies = [];
+  console.log(title);
+  favoriteMoviesList.forEach(movie => {
+    if (movie.title.toLowerCase().includes(title.toLowerCase())) {
+      filteredMovies.push(movie);
+    }
+  });
+  console.log(filteredMovies);
 
   return (
-    <div className='pl-20 pr-10 bg-gray-100 min-h-screen'>
+    <div className='pl-20 pr-10 bg-gray-100 h-full'>
       <h2 className='pt-10 pb-7 text-xl font-bold'>My Favourites</h2>
       <div className='pt-5 pb-10 flex flex-wrap justify-start'>
-        {favoriteMoviesList.length === 0 ? (
+        {favoriteMovies.length === 0 ? (
           <h1 className='text-xl'>No items in favourites</h1>
+        ) : filteredMovies.length === 0 ? (
+          <h1 className='text-xl'>No matching movies found</h1>
         ) : (
-          favoriteMoviesList.map((obj, index) => (
+          filteredMovies.map((obj, index) => (
             <div key={index} className='relative h-[500px] mb-10 w-[20%] mx-[2%]'>
               <img
                 className='cursor-pointer hover:scale-[1.05] rounded-xl h-[400px] w-full object-cover'

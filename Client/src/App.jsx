@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div>
-      <NavBar title={title} setTitle={setTitle} searchRes={searchRes} setSearchRes={setSearchRes} />
+      <NavBar setTitle={setTitle} setSearchRes={setSearchRes} />
       <Routes>
         <Route
           path='/'
@@ -40,6 +40,7 @@ function App() {
           path='/favourites'
           element={
             <FavouritePage
+              title={title}
               movies={searchRes}
               favoriteMovies={favoriteMovies}
               handleFavoriteClick={handleFavoriteClick}

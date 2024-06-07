@@ -16,7 +16,7 @@ module.exports.searchMovies = async (req, res) => {
             }
         });
         if (r.length === 0) {
-            res.status(200).json({ message: 'No movies found' });
+            res.status(200).json({ message: 'No matching movies found' });
         } else {
             res.status(200).json(r);
         }

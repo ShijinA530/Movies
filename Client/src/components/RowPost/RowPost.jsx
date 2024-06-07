@@ -15,7 +15,7 @@ function RowPost({ title, movies, setMovies, favoriteMovies, handleFavoriteClick
   }, [movies, setMovies]);
 
   const isFavorite = (movie) => favoriteMovies.includes(movie.id);
-  console.log(movies);
+
   return (
     <div className='pl-20 pr-10 bg-gray-100 h-full'>
       <h2 className='pt-12 text-lg font-bold'>{title}</h2>
