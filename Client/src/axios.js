@@ -2,7 +2,7 @@ import axios from 'axios'
 
 
 const instance = axios.create({
-    baseURL: `${import.meta.env.VITE_SERVER_URI}/api/movies`,
+    baseURL: 'http://localhost:3000/api/movies',
   });
 
 

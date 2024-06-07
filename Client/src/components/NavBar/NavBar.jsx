@@ -12,7 +12,7 @@ function NavBar({
     const newTitle = e.target.value;
     setTitle(newTitle);
     console.log(newTitle);
-    axios.get(`${import.meta.env.VITE_SERVER_URI}/search?title=${newTitle}`).then(res=>{
+    axios.get(`/search?title=${newTitle}`).then(res=>{
       setSearchRes(res.data);
       console.log(res.data)
     });
