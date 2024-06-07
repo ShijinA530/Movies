@@ -18,6 +18,10 @@ Make sure you have the following installed:
    git clone https://github.com/ShijinA530/Movies.git
    cd your-repo
 
+2. Open two terminals
+
+   one for server and one for client to run
+
 2. Run the server
    
    cd .\Server\
