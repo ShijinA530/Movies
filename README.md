@@ -31,4 +31,10 @@ Make sure you have the following installed:
    
    cd .\Client\
    npm run dev
-   
+
+
+
+   -> Issues:
+     I encountered an issue while hosting frontend on vercel.
+     The elements were not proportionate when deployed.
+     But it runs locally pretty good.
