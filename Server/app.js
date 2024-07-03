@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const PORT = 'https://movies-6.onrender.com/api/movies' || 3000
+const PORT = 'https://movies-6.onrender.com' || 3000
 const moviesRoutes = require("./routes/Movies");
 
 
